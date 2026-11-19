@@ -1,0 +1,13 @@
+{
+  "name": "agent-ops-harness",
+  "version": "1.0.0",
+  "description": "A small, working showcase of guardrails, skills and memory for running business operations on Claude Code.",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/hooks.test.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

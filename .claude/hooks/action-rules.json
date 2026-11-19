@@ -1,0 +1,32 @@
+{
+  "rules": [
+    {
+      "id": "prod-deploy",
+      "tool": "Bash",
+      "pattern": "\\b(vercel\\b[^\\n]*--prod|wrangler\\s+deploy|fly\\s+deploy)\\b",
+      "mode": "confirm",
+      "message": "Production deploy. Confirm the tests ran and the preview was checked before it goes live."
+    },
+    {
+      "id": "db-push-prod",
+      "tool": "Bash",
+      "pattern": "\\bsupabase\\s+db\\s+push\\b",
+      "mode": "confirm",
+      "message": "Database migration on a live project. Rehearse it locally and confirm the migration history matches first."
+    },
+    {
+      "id": "live-ad-change",
+      "tool": "mcp__.*ads.*",
+      "pattern": "\"(status|budget|bid|negative|pause|enable)",
+      "mode": "confirm",
+      "message": "Live ad account change. Dry run first, then read the change back after it is made."
+    },
+    {
+      "id": "outbound-email",
+      "tool": "mcp__.*(gmail|mail).*send.*",
+      "pattern": ".*",
+      "mode": "block",
+      "message": "Outbound email. Create a draft for a human to review and send instead."
+    }
+  ]
+}
